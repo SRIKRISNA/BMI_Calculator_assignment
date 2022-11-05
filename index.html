@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- <script src="./main.js"></script> -->
+</head>
+
+<body>
+    <div class="container">
+        <h2>BMI Calculator</h2>
+        <form class="bmi-form">
+            <input type="text" placeholder="Age Between 2-120" id="age"><br />
+            <label>Gender</label>
+            <input type="radio" checked="true" name="user-gender">Male
+            <input type="radio" name="user-gender">Female<br>
+            <input type="text" placeholder="Height in cm" id="height"><br>
+            <input type="text" placeholder="Weight in kgs" id="weight"><br>
+            <button onclick="calculateBMI('=')" id="calc">Calculate</button>
+            <button onclick="clearScreen()" id="clar">Clear All</button>
+        </form>
+    </div>
+    <script type="text/javascript">
+        let age = document.getElementById("age");
+        let gender = document.getElementsByName("user-gender");
+        let height = document.getElementById("height");
+        let weight = document.getElementById("weight");
+
+        if (age.value <= 1 && age.value > 122) {
+            alert("Please enter age between 2 to 120");
+        }
+
+        function calculateBMI() {
+            if (age.value <= 1 && age.value > 122) {
+                alert("Please enter age between 2 to 120");
+            } else if (age.value === NaN) {
+                alert("ENter only numbers between 2 to 120")
+            } else {
+                alert(age.value)
+            }
+            if(height.value === NaN){
+                alert("Enter number: height in cms");
+            }
+            if(weight.value === NaN){
+                alert("Enter number: weight in kgs");
+            }
+            let BMI = weight.value / (height.value * height.value);
+            alert(parseInt(height.value), parseInt(weight.value));
+            alert("BMI is : " + BMI);
+        }
+        function clearScreen() {
+            // alert(age.value);
+        }
+    </script>
+</body>
+
+</html>
